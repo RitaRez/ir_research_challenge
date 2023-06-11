@@ -138,6 +138,7 @@ def tf_idf(term_frequency: float, term_idf: float) -> float:
     return term_idf * term_frequency
 
 
+
 def daat(index_path: str, query: list[str], doc_lens: dict[int, int], k: int, matching: str, ranker: str, index_lock: Lock, lexicon_lock: Lock) -> PriorityQueue:
     """
     This function implements the DAAT algorithm

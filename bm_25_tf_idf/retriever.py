@@ -82,10 +82,11 @@ def main(index_path: str, queries_path: str, ranker: str, matching: str, number_
             pool.starmap(process_query, [(index_path, query, doc_lens, matching, ranker, cut_number, index_lock, lexicon_lock) for query in queries])
 
 
-    queries_path_without_extension = queries_path.split(".")[0]
+    queries_path_without_extension = queries_path.split("/")[1].split("_")[0]
+    print(queries_path_without_extension)
 
-    print(f"Saving results on results/{matching}_{ranker}_scores.csv")
-    subprocess.Popen(f"cat {results_folder}* > results/{matching}_{ranker}_scores.csv", shell=True)
+    print(f"Saving results on results/{queries_path_without_extension}_{matching}_{ranker}_scores.csv")
+    subprocess.Popen(f"cat {results_folder}* > results/{queries_path_without_extension}_{matching}_{ranker}_scores.csv", shell=True)
 
     time.sleep(10)
 
