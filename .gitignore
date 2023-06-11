@@ -1,8 +1,6 @@
 data
 venv
 indexer
-outputs
-results
 __pycache__
 main.log
 
